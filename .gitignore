@@ -1,0 +1,6 @@
+.env/
+*.pyc
+key.json
+googleads.yaml
+settings.py
+config

@@ -1,0 +1,37 @@
+var_env_virtualenv: &env_virtualenv v1-virtualenv-{{ checksum "requirements.txt" }}
+
+var_build: &build
+  run:
+    name: Preparing build
+    command: |
+      source ./setup.sh
+
+      pylint *.py
+
+version: 2
+jobs:
+  job-test:
+    docker:
+      - image: circleci/python:2.7.15-stretch
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - *env_virtualenv
+
+      # run prepare!
+      - *build
+
+      - save_cache:
+          key: *env_virtualenv
+          paths:
+            - /home/publica/.env/
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      # jsapp branch workflow
+      - job-test

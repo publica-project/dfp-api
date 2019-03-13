@@ -1,0 +1,8 @@
+# From: https://github.com/googleads/googleads-python-lib/blob/master/googleads.yaml
+ad_manager:
+  #############################################################################
+  # Required Fields                                                           #
+  #############################################################################
+  application_name: APP NAME HERE
+  network_code: NETWORK CODE HERE
+  path_to_private_key_file: ./key.json
