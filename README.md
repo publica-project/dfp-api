@@ -58,7 +58,7 @@ ad_manager:
 ### src/line_items.py
 - The properties and values for line item creation has not been moved to a separate config yet so for now, you need to check the `src/line_items.py` file.
 
-## Running the scoript
+## Running the script
 - After everything is setup, run the script with:
 
 ```
